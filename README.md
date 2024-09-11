@@ -1,26 +1,35 @@
 java c
 DSCI550: Data Science at Scale 
-Homework 5, Spring 2024 
-1. [20 points] Considering the following descriptions of a computer system setup:
-• The user program continuously performs reads of 64KB blocks, and requires 2 million cycles to process each block.
-• The clock rate is 3GHz.
-• The maximum sustained transfer rate of the memory bus is 640MB/sec
-• The read/write bandwidth of the disk controller and the disk drives is 64MB/sec, disk average seek plus rotational latency is 9ms.
-a) How much time is needed for CPU to process each 64 KB block?
-b) How much time is spent in memory transfer for a 64 KB block?
-c) How much time is spent in I/O transfer for a 64 KB block?
-d) Based on the answers of a) – c), what is the bottleneck (slowest component) in this computer system setup, the CPU, memory bus, or the disk set?
-2. (20 pts) Answer the following questions in a disk system with multiple hard disks:
-a) On a disk system with: a data block (consecutive sectors which is the access unit) size is 4 Kbytes, RPM is 7200, average seek time is 3 msec, and the data transfer rate is 20 MB/s, what is the access time to read a data block at a random location? If the data block size is 64 Mbytes, what would be the access time?
-b) A program repeatedly performs a three-step process: It reads in a 4-KB block of data from disk, does some processing on that data, and then writes out the result as another 4-KB block elsewhere on the disk. Each block is contiguous and randomly located on a single track on the disk. The disk driv代 写DSCI550: Data Science at Scale Homework 5 Spring 2024R
-代做程序编程语言e rotates at 7200RPM, has an average seek time of 8ms, and has a transfer rate of 20MB/sec. No other program is using the disk or processor, and there is no overlapping of disk operation with processing. The processing step takes 20 million clock cycles, and the clock rate is 2 GHz. What is the overall speed of the system in blocks processed per second assuming no other overhead?
-c) If a disk system contains 1,000 disk drives (uniquely numbered as HID 0001 – HID1000), and the probability of an individual disk failure is 1/100,000. What will be the probability that the system experiences any disk failure? Note that failures happen independently.
-d) In the same system as described in c), two copies of a data block are stored in HID200 and HID300. What is the probability that the system loses the data block due to the concurrent failure of HID200 and HID300?
-3. (15 pts) What are the two types of master nodes in Hadoop and what are their functions in the system? How does the master solve the problem of the single point of failure?
-4. (15 pts) What is speculative execution (also called backup tasks)? What problem does it solve?
-5. (30 pts) You have a data file (480MB) and want to store it in HDFS which block size is 128 MB. Your Hadoop cluster has 10 data nodes.
-1) Explain (draw a figure if needed) how this file is divided and stored in this system in details (e.g., with specific locations of data blocks).
-2) And explain the steps how this file can be accessed later.
+Homework 4, Spring 2024 
+1. (30 pts) Explain what requirements this ER diagram is implementing. List the requirements (what the database is for, main focus of the database, explain entities and relationships) in plain sentences.
+
+2. (40 pts) Draw a full ER diagram for the following requirements:
+The university database stores details about university students, courses, the semester a student took a particular course (and his mark and grade if he completed it), and what degree program each student is enrolled in. Consider the following requirements list:
+• The university offers one or more programs.
+• A program is made up of one or more courses.
+• A student must enroll in a program.
+• A student takes the courses that are part of her program.
+• A program has a name, a program identifier, the total credit points required to graduate, and the year it commenced.
+• A course has a name, a course identifier, a credit point value, and the year it commenced.
+• Students have one or more given names, a surname, a student identifier, a date of birth, and the year they first enrolled. We can treat all given names as a single object—for example, “John Paul.”
+• When a student takes a course, the year and semester he attempted it are recorded. When he finishes the course, a 代 写DSCI550: Data Science at Scale Homework 4 Spring 2024SQL
+代做程序编程语言grade (such as A or B) and a mark (such as 60 percent) are recorded.
+• Each course in a program is sequenced into a year (for example, year 1) and a semester (for example, semester 1).
+Make it clear to mark primary key, relationships (1-to-1, 1-to-N, N-to-M), and participation (partial and total).
+3. (30 pts) Using the following tables in the movie database, write SQL queries.
+● Actor (id, fname, lname, age, gender, nationality)
+● Movie (id, name, year, rank, revenue, studio, director_id)
+● Director (id, fname, lname, gender, income)
+id column in ACTOR, MOVIE  DIRECTOR tables is a key for the respective table.
+1) (3 pts) List all the male actors (i.e., gender = ‘M’).
+2) (3 pts) Find the actor whose first name is ‘John’ and from ‘Spain’.
+3) (3 pts) List first name and last name of all the actors whose nationality is ‘USA’.
+4) (3 pts) List the name and revenue of movies made by “Universal Studio”.
+5) (3 pts) List the total number of movies released in 2018.
+6) (3 pts) List max income of all directors.
+7) (4 pts) List the name of movies in descending order of revenue, i.e., the highest first.
+8) (4 pts) List the average income of female directors.
+9) (4 pts) List the names and years of the movies directed by “Jeniffer” (fname).
 
 
 
